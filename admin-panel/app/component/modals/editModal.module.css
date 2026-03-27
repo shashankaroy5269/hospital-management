@@ -1,0 +1,96 @@
+/* 🔥 Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* 💎 Modal */
+.modal {
+  width: 350px;
+  padding: 25px;
+  border-radius: 18px;
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+  animation: glow 3s infinite alternate;
+}
+
+/* ✨ Glow effect */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+  }
+}
+
+/* 🏷 Title */
+.title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 🧾 Input */
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  transition: 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #3b82f6;
+}
+
+/* ⚙️ Buttons */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* ✅ Save */
+.save {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+}
+
+.save:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #3b82f6;
+}
+
+/* ❌ Cancel */
+.cancel {
+  background: #ef4444;
+}
+
+.cancel:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ef4444;
+}

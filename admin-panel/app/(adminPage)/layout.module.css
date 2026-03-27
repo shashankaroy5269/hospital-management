@@ -1,0 +1,166 @@
+/* ===== WRAPPER ===== */
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  background:linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: rgb(10, 10, 10);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.collapsed {
+  width: 70px;
+}
+
+/* ===== LOGO ===== */
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #60a5fa;
+}
+
+/* ===== NAV ===== */
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #cbd5f5;
+  transition: all 0.25s ease;
+}
+
+.navItem:hover {
+  background: rgba(59,130,246,0.15);
+  color: #93c5fd;
+  transform: translateX(4px);
+}
+
+/* ACTIVE LINK */
+.navItem.active {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: white;
+  box-shadow: 0 6px 15px rgba(59,130,246,0.4);
+}
+
+/* ===== PROFILE ===== */
+.sidebarProfile {
+  padding: 15px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  cursor: pointer;
+  position: relative;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.email {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown {
+  position: absolute;
+  bottom: 65px;
+  left: 10px;
+  background: #0f172a;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* ===== MAIN ===== */
+.mainArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.header {
+  height: 60px;
+  background: #020617;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* LEFT */
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e2e8f0;
+}
+
+/* RIGHT */
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* SEARCH */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.05);
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #cbd5f5;
+}
+
+/* ===== CONTENT ===== */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+
+  /* SAME CARD AREA BG */
+  background: #020617;
+}
+
+/* ===== SCROLLBAR (🔥 premium feel) ===== */
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 10px;
+}

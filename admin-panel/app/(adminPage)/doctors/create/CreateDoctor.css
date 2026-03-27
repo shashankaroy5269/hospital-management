@@ -1,0 +1,255 @@
+/* ===== RESET ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.form-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  border-radius: 16px;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 550px;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+
+  box-shadow:linear-gradient(135deg, #0f172a, #1e3a8a);
+}
+
+/* ===== RIGHT SIDE IMAGE (🔥 FIXED) ===== */
+.form-container::after {
+  content: "";
+  grid-column: 2;
+
+  width: 100%;
+  height: 100%;
+
+  background: url("/images/image.png") center/cover no-repeat;
+}
+
+/* ===== FORM SIDE ===== */
+.doctor-form {
+  grid-column: 1;
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ===== TITLE ===== */
+.form-container h2 {
+  grid-column: span 2;
+  text-align: center;
+  padding: 15px;
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  color: #93c5fd;
+}
+
+/* ===== INPUT GROUP ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: #cbd5f5;
+}
+
+/* ===== INPUT ===== */
+input,
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+
+  background: rgba(255,255,255,0.1);
+  color: white;
+
+  outline: none;
+}
+/* ===== SELECT FIX ===== */
+select {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-radius: 8px;
+}
+
+/* dropdown option gula */
+select option {
+  background: #1e293b;  /* dark */
+  color: white;
+}
+input:focus,
+select:focus {
+  border: 1px solid #3b82f6;
+}
+
+/* ===== ROW ===== */
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* ===== BUTTON ===== */
+.submit-btn {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== ERROR ===== */
+.error-msg {
+  background: rgba(239, 68, 68, 0.2);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* ===== LOADER ===== */
+.loader {
+  width: 14px;
+  height: 14px;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== REMOVE FOOTER GAP ===== */
+footer {
+  display: none !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .form-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container::after {
+    grid-column: span 1;
+    height: 200px;
+  }
+
+  .doctor-form {
+    grid-column: span 1;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
+/* ===== FIX TIME PICKER FULL ===== */
+.react-time-picker {
+  width: 100% !important;
+}
+
+/* main box */
+.react-time-pickerwrapper {
+  display: flex !important;
+  align-items: center;
+
+  background: white !important;
+  border: none !important;
+  border-radius: 10px !important;
+
+  padding: 10px !important;
+  height: 42px !important;
+}
+
+/* remove ugly borders */
+.react-time-pickerinputGroup {
+  border: none !important;
+}
+
+/* inputs */
+.react-time-pickerinputGroup input {
+  color: #ffffff !important;
+  background: transparent !important;
+  font-size: 14px;
+}
+
+/* separator (: ) */
+.react-time-pickerinputGroupdivider {
+  color: #cbd5f5 !important;
+}
+
+/* AM PM dropdown */
+.react-time-pickerinputGroupamPm {
+  background: rgba(255,255,255,0.15) !important;
+  color: white !important;
+  border-radius: 6px;
+  padding: 3px 6px;
+  margin-left: 6px;
+}
+
+/* icon */
+.react-time-pickerbutton {
+  margin-left: auto;
+}
+
+.react-time-pickerbutton svg {
+  stroke: #93c5fd !important;
+}
+
+/* hover focus */
+.react-time-pickerwrapper:focus-within {
+  box-shadow: 0 0 8px rgba(59,130,246,0.6) !important;
+}
+
+/* clock popup */
+.react-time-picker__clock {
+  background: #1e293b !important;
+  border-radius: 10px !important;
+  border: none !important;
+}
+
+/* REMOVE WHITE SELECT BOX */
+.react-time-picker select {
+  background: transparent !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* dropdown option fix */
+.react-time-picker option {
+  color: black;
+}
