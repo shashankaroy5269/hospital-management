@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "../../../Redux/store/provider";
 import { createDoctor } from "../../../Redux/slice/doctorSlice";
 import { AxiosInstance } from "@/api/axios/axios";
 import dynamic from "next/dynamic";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 // 🔥 FIX: SSR issue solve
 const TimePicker = dynamic(() => import("react-time-picker"), {
@@ -21,6 +23,8 @@ const CreateDoctor = () => {
   const { loading, error } = useAppSelector((state) => state.doctor);
 
   const [departments, setDepartments] = useState<any[]>([]);
+
+  const [selectedDates, setSelectedDates] = useState<Date[]>([]); // ✅ NEW
 
   const [formData, setFormData] = useState({
     name: "",
@@ -57,6 +61,13 @@ const CreateDoctor = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  // 🔥 ADD DATE
+  const handleAddDate = (date: Date) => {
+    if (!selectedDates.find((d) => d.toDateString() === date.toDateString())) {
+      setSelectedDates([...selectedDates, date]);
+    }
+  };
+
   // 🚀 Submit
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -70,6 +81,7 @@ const CreateDoctor = () => {
         endTime: formData.endTime,
         slotDuration: Number(formData.slotDuration),
       },
+      slotDates: selectedDates, // ✅ IMPORTANT
     };
 
     console.log("FINAL PAYLOAD:", payload);
@@ -86,6 +98,7 @@ const CreateDoctor = () => {
           endTime: "",
           slotDuration: "",
         });
+        setSelectedDates([]); // reset
       })
       .catch((err) => console.error(err));
   };
@@ -137,7 +150,7 @@ const CreateDoctor = () => {
                   {d.name}
                 </option>
               ))}
-            </select>
+</select>
           </div>
 
         </div>
@@ -160,7 +173,7 @@ const CreateDoctor = () => {
             <label>End Time</label>
             <TimePicker
               value={formData.endTime}
- onChange={(value) =>
+              onChange={(value) =>
                 setFormData({ ...formData, endTime: value as string })
               }
               disableClock={true}
@@ -181,6 +194,26 @@ const CreateDoctor = () => {
           />
         </div>
 
+        {/* ✅ NEW DATE PICKER (UI disturb না করে add) */}
+        <div className="form-group">
+          <label>Select Slot Dates</label>
+
+          <DatePicker
+            selected={null}
+            onChange={(date: Date) => handleAddDate(date)}
+            minDate={new Date()}
+            placeholderText="Select date"
+          />
+
+          <div style={{ marginTop: "8px" }}>
+            {selectedDates.map((d, i) => (
+              <span key={i} className="date-chip">
+                {d.toDateString()}
+              </span>
+            ))}
+          </div>
+        </div>
+
         {error && <div className="error-msg"> {error}</div>}
 
         <button type="submit" className="submit-btn" disabled={loading}>
@@ -192,6 +225,7 @@ const CreateDoctor = () => {
           ) : (
             "Create Doctor"
           )}
+
         </button>
 
       </form>
